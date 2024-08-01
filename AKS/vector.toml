@@ -1,0 +1,10 @@
+[sources.docker]
+type = "docker"
+include_containers = ["node-app"]
+
+[sinks.elasticsearch]
+type = "elasticsearch"
+inputs = ["docker"]
+host = "http://elasticsearch:9200"
+index = "node-logs"
+request.timeout_secs = 30
