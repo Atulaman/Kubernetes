@@ -6,7 +6,7 @@ metadata:
     app: myapp
   namespace: default
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
       app: myapp
@@ -19,6 +19,11 @@ spec:
       containers:
       - name: react-app
         image: atulaman/myapp_react
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "500m"
 ---
 apiVersion: v1
 kind: Service
